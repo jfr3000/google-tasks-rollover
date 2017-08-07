@@ -1,0 +1,28 @@
+{
+  "name": "google-tasks-rollover",
+  "version": "1.0.0",
+  "description": "Move overdue Google tasks to the current day",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Google tasks"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "google-oauth2": "^0.1.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "author": "Julia Friesel <julia.friesel@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfr3000/google-tasks-rollover.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jfr3000/google-tasks-rollover/issues"
+  },
+  "homepage": "https://github.com/jfr3000/google-tasks-rollover#readme"
+}
