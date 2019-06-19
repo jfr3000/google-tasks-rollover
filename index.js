@@ -1,7 +1,10 @@
 #!/usr/bin/env node
+'use strict'
 
 const request = require('request')
-const config = require('./config.json')
+const os = require('os')
+const path = require('path')
+const config = require(path.join(os.homedir(), '.google-tasks-rollover', 'config.json'))
 const goAuth2 = require('google-oauth2')(config)
 
 const scope = 'https://www.googleapis.com/auth/tasks'
@@ -27,8 +30,7 @@ async function rollOver(scope) {
 }
 
 async function getOverdueTasks(token) {
-  const d = new Date();
-  d.setDate(d.getDate() - 1)
+  const d = new Date()
   const res = await requestP({
     method: 'get',
     url: base,
@@ -60,7 +62,7 @@ async function getTokensForAuthCode(authCode) {
 async function requestP (opts) {
   return new Promise((resolve, reject) => {
     request(opts, (err, res) => {
-      if (err || (res.status && res.status != 200)) reject(err || res)
+      if (err || (res.status && res.status !== 200)) reject(err || res)
       resolve(res)
     })
   })
